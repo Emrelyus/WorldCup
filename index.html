@@ -1189,46 +1189,7 @@
             <!-- Main Roll button (Moved to top) -->
             <button class="btn-roll-main" id="btnRoll" style="margin-bottom: 15px;">Roll 🎲</button>
 
-            <div class="section-title" id="titleFormation">Formation</div>
-            <div class="formation-grid" id="formationGrid">
-                <!-- Javascript will load -->
-            </div>
-
-            <div class="section-title" id="titleStyle">Style</div>
-            <div class="style-grid" style="margin-bottom: 15px;">
-                <button class="btn-style" id="btnStyleDef" onclick="selectStyle(this)">Defensive</button>
-                <button class="btn-style active" id="btnStyleBal" onclick="selectStyle(this)">Balanced</button>
-                <button class="btn-style" id="btnStyleAtt" onclick="selectStyle(this)">Attacking</button>
-            </div>
-
-            <div class="section-title" id="titleMode">Mode • Difficulty</div>
-            <div class="mode-grid" style="margin-bottom: 15px;">
-                <button class="btn-mode active" id="btnModeClassic" onclick="selectMode(this)">Classic</button>
-                <button class="btn-mode" id="btnModeMemory" onclick="selectMode(this)">From memory</button>
-            </div>
-
-            <div class="section-title" id="titleLang">Language • Dil</div>
-            <div class="lang-selector">
-                <button class="btn-lang active" id="btnLangTR" onclick="changeLanguage('TR')">TR</button>
-                <button class="btn-lang" id="btnLangEN" onclick="changeLanguage('EN')">EN</button>
-            </div>
-        </div>
-
-        <!-- Orta Panel -->
-        <div class="field-panel">
-            <div class="pitch"></div>
-            <div class="pitch-lines">
-                <div class="pitch-center-circle"></div>
-                <div class="pitch-center-line"></div>
-                <div class="pitch-box-top"></div>
-                <div class="pitch-box-bottom"></div>
-            </div>
-            <!-- Player spots inside javascript -->
-            <div id="spotsContainer"></div>
-        </div>
-
-        <!-- Sağ Panel -->
-        <div class="side-panel">
+            <!-- Oyuncu Seçim Menüsü ve Kadro Skoru (Moved from Right to Left) -->
             <div class="box-score-header">
                 <div class="box-score-title" id="boxScoreTitle">Box Score • 0/11</div>
                 <div class="box-score-indicator"></div>
@@ -1263,6 +1224,46 @@
             <div class="reset-container" style="display: flex; gap: 8px;">
                 <button class="btn-reset-light" id="btnReset" style="flex: 1;">Reset Squad</button>
                 <button class="btn-reset-light" id="btnAutoBuild" style="flex: 1; background-color: var(--border-green-bright); color: black;">Rastgele Kadro</button>
+            </div>
+        </div>
+
+        <!-- Orta Panel -->
+        <div class="field-panel">
+            <div class="pitch"></div>
+            <div class="pitch-lines">
+                <div class="pitch-center-circle"></div>
+                <div class="pitch-center-line"></div>
+                <div class="pitch-box-top"></div>
+                <div class="pitch-box-bottom"></div>
+            </div>
+            <!-- Player spots inside javascript -->
+            <div id="spotsContainer"></div>
+        </div>
+
+        <!-- Sağ Panel (Diziliş, Stil, Mod, Dil) -->
+        <div class="side-panel">
+            <div class="section-title" id="titleFormation">Formation</div>
+            <div class="formation-grid" id="formationGrid">
+                <!-- Javascript will load -->
+            </div>
+
+            <div class="section-title" id="titleStyle">Style</div>
+            <div class="style-grid" style="margin-bottom: 15px;">
+                <button class="btn-style" id="btnStyleDef" onclick="selectStyle(this)">Defensive</button>
+                <button class="btn-style active" id="btnStyleBal" onclick="selectStyle(this)">Balanced</button>
+                <button class="btn-style" id="btnStyleAtt" onclick="selectStyle(this)">Attacking</button>
+            </div>
+
+            <div class="section-title" id="titleMode">Mode • Difficulty</div>
+            <div class="mode-grid" style="margin-bottom: 15px;">
+                <button class="btn-mode active" id="btnModeClassic" onclick="selectMode(this)">Classic</button>
+                <button class="btn-mode" id="btnModeMemory" onclick="selectMode(this)">From memory</button>
+            </div>
+
+            <div class="section-title" id="titleLang">Language • Dil</div>
+            <div class="lang-selector">
+                <button class="btn-lang active" id="btnLangTR" onclick="changeLanguage('TR')">TR</button>
+                <button class="btn-lang" id="btnLangEN" onclick="changeLanguage('EN')">EN</button>
             </div>
         </div>
     </div>
