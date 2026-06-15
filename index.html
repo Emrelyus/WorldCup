@@ -1166,41 +1166,19 @@
     <!-- Championship Manager Title Bar -->
     <div class="title-bar" style="max-width: 1280px; width: 100%; border: 4px solid #1c324a; border-bottom: none; display: flex; justify-content: space-between; align-items: center;">
         <span>Championship Manager 01/02 - Squad Selection</span>
-        <div class="lang-selector" style="display: flex; gap: 4px;">
-            <button class="btn-lang active" id="btnLangTR" onclick="changeLanguage('TR')" style="padding: 2px 6px; font-size: 0.7rem; font-weight: bold;">TR</button>
-            <button class="btn-lang" id="btnLangEN" onclick="changeLanguage('EN')" style="padding: 2px 6px; font-size: 0.7rem; font-weight: bold;">EN</button>
-        </div>
     </div>
 
     <div class="cm-window" style="max-width: 1280px; width: 100%; display: flex; flex-direction: column;">
         <div class="app-container">
         <!-- Sol Panel -->
         <div class="side-panel">
-            <div class="section-title" id="titleFormation">Formation</div>
-            <div class="formation-grid" id="formationGrid">
-                <!-- Javascript will load -->
-            </div>
-
-            <div class="section-title" id="titleStyle">Style</div>
-            <div class="style-grid">
-                <button class="btn-style" id="btnStyleDef" onclick="selectStyle(this)">Defensive</button>
-                <button class="btn-style active" id="btnStyleBal" onclick="selectStyle(this)">Balanced</button>
-                <button class="btn-style" id="btnStyleAtt" onclick="selectStyle(this)">Attacking</button>
-            </div>
-
-            <div class="section-title" id="titleMode">Mode • Difficulty</div>
-            <div class="mode-grid">
-                <button class="btn-mode active" id="btnModeClassic" onclick="selectMode(this)">Classic</button>
-                <button class="btn-mode" id="btnModeMemory" onclick="selectMode(this)">From memory</button>
-            </div>
-
-            <!-- Drawn Panel -->
+            <!-- Drawn Panel (Moved to top) -->
             <div class="drawn-info-box" id="drawnInfoBox">
                 <div class="roll-placeholder" id="txtRollPlaceholder">Roll to draw a national team and a World Cup</div>
             </div>
 
-            <!-- Re-roll list -->
-            <div class="reroll-section" id="rerollSection" style="display: none;">
+            <!-- Re-roll list (Moved to top) -->
+            <div class="reroll-section" id="rerollSection" style="display: none; margin-bottom: 12px;">
                 <div class="reroll-title" id="rerollTitle">NOT FEELING IT? RE-ROLL - 3 LEFT</div>
                 <div class="reroll-buttons">
                     <button class="btn-reroll" id="btnRerollTeam" onclick="rerollTeam()">↺ Another Team</button>
@@ -1208,8 +1186,32 @@
                 </div>
             </div>
 
-            <!-- Main Roll button -->
-            <button class="btn-roll-main" id="btnRoll">Roll 🎲</button>
+            <!-- Main Roll button (Moved to top) -->
+            <button class="btn-roll-main" id="btnRoll" style="margin-bottom: 15px;">Roll 🎲</button>
+
+            <div class="section-title" id="titleFormation">Formation</div>
+            <div class="formation-grid" id="formationGrid">
+                <!-- Javascript will load -->
+            </div>
+
+            <div class="section-title" id="titleStyle">Style</div>
+            <div class="style-grid" style="margin-bottom: 15px;">
+                <button class="btn-style" id="btnStyleDef" onclick="selectStyle(this)">Defensive</button>
+                <button class="btn-style active" id="btnStyleBal" onclick="selectStyle(this)">Balanced</button>
+                <button class="btn-style" id="btnStyleAtt" onclick="selectStyle(this)">Attacking</button>
+            </div>
+
+            <div class="section-title" id="titleMode">Mode • Difficulty</div>
+            <div class="mode-grid" style="margin-bottom: 15px;">
+                <button class="btn-mode active" id="btnModeClassic" onclick="selectMode(this)">Classic</button>
+                <button class="btn-mode" id="btnModeMemory" onclick="selectMode(this)">From memory</button>
+            </div>
+
+            <div class="section-title" id="titleLang">Language • Dil</div>
+            <div class="lang-selector">
+                <button class="btn-lang active" id="btnLangTR" onclick="changeLanguage('TR')">TR</button>
+                <button class="btn-lang" id="btnLangEN" onclick="changeLanguage('EN')">EN</button>
+            </div>
         </div>
 
         <!-- Orta Panel -->
@@ -1383,6 +1385,7 @@
             TR: {
                 formation: "DİZİLİŞ",
                 style: "STİL",
+                lang: "DİL",
                 defensive: "Defansif",
                 balanced: "Dengeli",
                 attacking: "Ofansif",
@@ -1427,6 +1430,7 @@
             EN: {
                 formation: "FORMATION",
                 style: "STYLE",
+                lang: "LANGUAGE",
                 defensive: "Defensive",
                 balanced: "Balanced",
                 attacking: "Attacking",
@@ -64150,6 +64154,11 @@
             document.getElementById("titleMode").innerText = t.mode;
             document.getElementById("btnModeClassic").innerText = t.classic;
             document.getElementById("btnModeMemory").innerText = t.memory;
+            
+            const titleLangEl = document.getElementById("titleLang");
+            if (titleLangEl && t.lang) {
+                titleLangEl.innerText = t.lang;
+            }
             
             if (!activeTeam) {
                 document.getElementById("drawnInfoBox").innerHTML = `
